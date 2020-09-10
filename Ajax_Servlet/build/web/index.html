@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ajax Servlet</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div><h2> Register Form </h2></div>
+        <div>
+            <form id="myform" method="POST">
+                <input type="text" name="name" id="name" placeholder="Name"/>
+                <input type="email" name="email" id="email" placeholder="Email"/>
+                <textarea name="address" id="address" placeholder="Address"></textarea>
+                <input type="button" value="Save" id="mysubmit"/>
+            </form>
+        </div>
+        <p id="para" style="color:red;font-size: 1vw;"> </p>
+        <script>
+            $(document).ready(function(event) {
+                $("#mysubmit").on('click', function() {
+                    let name = $("#name").val();
+                    let email = $("#email").val();
+                    let address = $("#address").val();
+                    $.ajax({
+                        type: 'POST',
+                        url: 'AjaxServlet',
+                        data: {name: name, email: email, address: address},
+                        success:function(data) {
+                            document.getElementById("para").innerHTML = data;
+                            $('#name').val('');
+                            $('#email').val('');
+                            $('#address').val('');
+                        },
+                        error:function(e) {
+                            document.getElementById("para").innerHTML = e;
+                            $('#name').val('');
+                            $('#email').val('');
+                            $('#address').val('');
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

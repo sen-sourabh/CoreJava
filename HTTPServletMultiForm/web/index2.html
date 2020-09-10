@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> Multi-Form Project </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <div>
+            <h1> Registration Form </h1>
+            <form method="POST" action="./ValidateServlet" >
+                <input type="text" name="mobileno" placeholder="Mobile"/>
+                <input type="text" name="spec" placeholder="Specialization"/>
+                <input type="hidden" name="form3" value="true"/>
+                <input type="submit" name="next" value="Save"/>
+            </form>
+        </div>
+    </body>
+</html>
